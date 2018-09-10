@@ -1,0 +1,101 @@
+<html>
+    <head>
+        <title>task 1 form validation</title>
+        <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+        <div class="container">
+            <br/><br/><br/>
+        <form action="#" method="#">
+            <div class="form-group">
+            <label>Phone No:</label>
+            <input type="text" style="width: 40%;" class="form-control" id="t1"  name="phoneNo" onblur="myFun1()" onkeydown="fun1()" onkeypress="return isNumberKey(event)" required>
+            </div>
+            <div class="form-group">
+            <label>CNIC No:</label>
+            <input type="text" style="width: 40%;" class="form-control" id="t2" name="cnic" onblur="myFun2()" onkeydown="fun2()" onkeypress="return isNumberKey(event)" required>
+            </div>
+            <p id="p1"></p>
+            <p id="p2"></p>
+            <input type="submit" class="btn btn-success" value="Submit"><br/>
+            
+        </form>
+        </div>
+        <script type="text/javascript">
+            var counter=0;
+            var counter2=0;
+            function isNumberKey(evt)
+            {
+                var charCode = evt.keyCode
+                if (charCode > 31 && (charCode < 48 || charCode > 57))
+                    return false;
+
+                return true;
+            }
+            function myFun1()
+            {
+                var x = document.getElementById("t1").value;
+                if(x.length<11)
+                    {
+                        alert("please enter correct phone number!");
+                    }
+            }
+            function myFun2()
+            {
+                var x = document.getElementById("t2").value;
+                if(x.length<13)
+                    {
+                        alert("please enter correct cnic number!");
+                    }
+            }
+            function fun1()
+            {
+                counter +=1;
+                var text="";
+                var x = document.getElementById("t1").value;
+                if(x.length==4)
+                {
+                        document.getElementById("t1").value = x + "-";
+                }
+                else if(x.length>11)
+                {
+                        alert("incorrect phone number");
+                        counter=1;
+                        document.getElementById("t1").value ="";
+                }
+
+            }
+            
+            function fun2()
+            {
+                counter2 +=1;
+                var text="";
+                var x = document.getElementById("t2").value;
+
+                if(x.length==5)
+                {
+                        document.getElementById("t2").value = x + "-";
+                }
+                else if(x.lenght==12)
+                {
+                        document.getElementById("t2").value = x + "-";
+                }
+                if(x.length>13)
+                {
+                        alert("incorrect cnic number");
+                        counter2=1;
+                        document.getElementById("t2").value ="";
+                }
+
+            }
+            
+            
+            
+        </script>
+    </body>
+
+</html>
